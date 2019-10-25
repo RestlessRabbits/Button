@@ -4,6 +4,9 @@ Button button1(2); // Connect your button between pin 2 and GND
 Button button2(3); // Connect your button between pin 3 and GND
 Button button3(4); // Connect your button between pin 4 and GND
 
+//  -OR- Add ', false' if you want to use the button with an external pulldown circuit
+//  Button button3(4, false);
+
 void setup() {
 	button1.begin();
 	button2.begin();
