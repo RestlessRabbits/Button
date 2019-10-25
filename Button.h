@@ -11,7 +11,7 @@
 class Button
 {
 	public:
-		Button(uint8_t pin);
+		Button(uint8_t pin, bool use_pullup = true);
 		void begin();
 		bool read();
 		bool toggled();
@@ -28,6 +28,7 @@ class Button
 		bool     _state;
 		bool     _has_changed;
 		uint32_t _ignore_until;
+		bool	 _use_pullup;
 };
 
 #endif
