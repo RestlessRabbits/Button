@@ -43,9 +43,12 @@ Here is the 'basic\_usage' example program, included in the download:
 
     #include <Button.h>
     
-    Button button1(2); // Connect your button between pin 2 and GND
+    Button button1(2); // Connect your button between pin 2 and GND 
     Button button2(3); // Connect your button between pin 3 and GND
     Button button3(4); // Connect your button between pin 4 and GND
+    
+    //  -OR- Add ', false' if you want to use the button with an external pulldown circuit
+    //  Button button3(4, false);
     
     void setup() {
     	button1.begin();
@@ -73,8 +76,9 @@ Here is the 'basic\_usage' example program, included in the download:
 
 Documentation
 -------------
-**Button(int pin)**
-Creates a new Button.
+**Button(int pin, bool use_pullup = true)**
+Creates a new Button. It uses the internal pullup by default.
+If you want or need to use a button switching to HIGH instead of LOW (GND) you can add false as a parameter and use an external circuit to make sure your potential is safely pulled to GND potential by default (add a 10k resistor between GND and your input pin).
 
 **void begin()**
 Call this in your `setup` method to setup the button. All it does is set the correct pin mode.
@@ -100,6 +104,11 @@ Quirks and Things to Keep in Mind
 The easiest way to connect a switch on an Arduino is to connect it between an input pin and ground, and use the internal pullup resistor to make sure it doesn't float. This is fine and dandy, but it can get a bit confusing, as a "pressed" button is logic level: low, while a "released" button is logic level: high.
 
 So to make it a bit more obvious what you're talking about, you can use a couple of handy shortcuts: `Button::PRESSED` and `Button::RELEASED` which map to the expected values.
+
+**Addition**
+If you'd rather want to use an external circuit with a pulldown-resistor, you can still use this simple & clean library.
+Just add the parameter false when declaring your buttons to achieve the desired behaviour.
+
 
 License
 -------
