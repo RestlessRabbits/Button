@@ -2,6 +2,7 @@ Button
 ======
 
 * Author: Michael Adams (<http://www.michael.net.nz>)
+* Contributor: M. Maeso Madronero (<http://restlessrabbits.com>)
 * Copyright (C) 2016 Michael D K Adams.
 * Released under the MIT license.
 
